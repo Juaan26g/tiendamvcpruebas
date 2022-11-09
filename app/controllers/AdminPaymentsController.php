@@ -11,7 +11,7 @@ class AdminPaymentsController extends Controller
 
     public function index()
     {
-        $session = new Session();
+        $session = new AdminSession();
 
         if ($session->getLogin()) {
 
