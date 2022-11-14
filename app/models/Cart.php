@@ -83,6 +83,16 @@ class Cart
         return $query->execute($params);
     }
 
+    public function paymentmode()
+    {
+        $sql = 'SELECT * FROM payments';
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_OBJ);
+
+    }
+
     public function closeCart($id, $state)
     {
         $sql = 'UPDATE carts SET state=:state WHERE user_id=:user_id AND state=0';

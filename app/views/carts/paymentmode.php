@@ -15,9 +15,11 @@
     <div class="card-body">
         <form action="<?= ROOT ?>cart/verify/" method="POST">
             <div class="form-group text-left">
+            <?php foreach ($data['payments'] as $payment): ?>
                 <div class="radio">
-                    <label><input type="radio" name="payment" value="cc1"> Tarjeta de crédito MasterCard</label>
+                    <label><input type="radio" name="payment" value="<?= $payment->name?>"> <?= $payment->name?></label>
                 </div>
+            <?php endforeach; ?>
                 <div class="radio">
                     <label><input type="radio" name="payment" value="cc2"> Tarjeta de crédito Visa</label>
                 </div>

@@ -9,7 +9,7 @@
                 <label for="name">Nombre:</label>
                 <input type="text" name="name" class="form-control"
                        placeholder="Escribe el nombre del metodo" required
-                       value="<?= $data['data']['name'] ?? '' ?>"
+                      
                 >
             </div>
             <div class="form-group text-left">

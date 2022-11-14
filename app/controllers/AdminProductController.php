@@ -333,7 +333,7 @@ class AdminProductController extends Controller
         $this->view('admin/products/update', $data);
     }
 
-    public function delete($id)
+    public function delete ($id)
     {
         $errors = [];
 
@@ -357,5 +357,6 @@ class AdminProductController extends Controller
             'type' => $typeConfig,
             'product' => $product,
         ];
+        $this->view('admin/products/delete', $data);
     }
 }

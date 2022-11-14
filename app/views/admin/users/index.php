@@ -39,9 +39,10 @@
                     <a href="<?= ROOT ?>adminUser/create" class="btn btn-success">
                         Crear Usuario
                     </a>
+                    <a href="<?= ROOT ?>adminShop" class="btn btn-info">Regresar</a>
                 </div>
                 <div class="col-sm-6">
-
+                
                 </div>
             </div>
         </div>

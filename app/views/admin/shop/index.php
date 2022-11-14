@@ -7,7 +7,9 @@
     <h2 class="text-center">Bienvenido a la administración de la tienda</h2>
     <p class="text-center">Acceso al menú de administación en el header</p>
 
-                    <a href="<?= ROOT ?>adminPayments" class="btn btn-info">Pagos</a>
+                    <a href="<?= ROOT ?>adminPayment" class="btn btn-info">Pagos</a>
+                    <a href="<?= ROOT ?>adminProduct" class="btn btn-info">Productos</a>
+                    <a href="<?= ROOT ?>adminUser" class="btn btn-info">Usuarios</a>
                 
         </div>
         <div class="card-footer">

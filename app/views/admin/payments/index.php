@@ -19,7 +19,7 @@
                     <td class="text-center"><?= $payment->name?></td>
                     <td class="text-center"><?= html_entity_decode($payment->description) ?></td>
                     <td class="text-center">
-                        <a href="<?= ROOT ?>adminPayment/update/<?= $payment->id ?>"
+                        <a href="<?= ROOT ?>adminPayment/edit/<?= $payment->id ?>"
                            class="btn btn-info"
                         >Editar</a>
                     </td>
@@ -36,12 +36,13 @@
     <div class="card-footer">
         <div class="row">
             <div class="col-sm-6">
-                <a href="<?= ROOT ?>adminPayments/add" class="btn btn-success">
+                <a href="<?= ROOT ?>adminPayment/add" class="btn btn-success">
                     Añadir tipo
                 </a>
+                <a href="<?= ROOT ?>adminShop" class="btn btn-info">Regresar</a>
             </div>
             <div class="col-sm-6">
-
+            
             </div>
         </div>
     </div>
