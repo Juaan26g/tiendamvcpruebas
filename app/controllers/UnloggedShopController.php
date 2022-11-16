@@ -1,6 +1,6 @@
 <?php
 
-class ShopController extends Controller
+class UnloggedShopController extends Controller
 {
     private $model;
 
@@ -11,10 +11,7 @@ class ShopController extends Controller
 
     public function index()
     {
-        $session = new Session();
-
-        if ($session->getLogin()) {
-
+        
             $mostSold = $this->model->getMostSold();
             $news = $this->model->getNews();
 
@@ -26,11 +23,9 @@ class ShopController extends Controller
                 'subtitle2' => 'Artículos nuevos',
                 'news' => $news,
             ];
-            header('location:' . ROOT);
             $this->view('shop/index', $data);
-        } else {
-            header('location:' . ROOT);
-        }
+    
+        
 
     }
 
@@ -43,7 +38,7 @@ class ShopController extends Controller
 
     public function show($id, $back = '')
     {
-        $session = new Session();
+        
 
         $product = $this->model->getProductById($id);
 
@@ -54,18 +49,17 @@ class ShopController extends Controller
             'back' => $back,
             'errors' => [],
             'data' => $product,
-            'user_id' => $session->getUserId(),
+
         ];
+        
+        
 
         $this->view('shop/show', $data);
     }
 
     public function whoami()
     {
-        $session = new Session();
-
-        if ($session->getLogin()) {
-
+    
             $data = [
                 'titulo' => 'Quienes somos',
                 'menu' => true,
@@ -73,9 +67,7 @@ class ShopController extends Controller
             ];
 
             $this->view('shop/whoami', $data);
-        } else {
-            header('location:' . ROOT);
-        }
+       
     }
 
     public function contact()
@@ -138,10 +130,6 @@ class ShopController extends Controller
             }
         } else {
 
-            $session = new Session();
-
-            if ($session->getLogin()) {
-
                 $data = [
                     'titulo' => 'Contacta con nosotros',
                     'menu' => true,
@@ -149,9 +137,7 @@ class ShopController extends Controller
                 ];
 
                 $this->view('shop/contact', $data);
-            } else {
-                header('location:' . ROOT);
-            }
+           
 
         }
     }

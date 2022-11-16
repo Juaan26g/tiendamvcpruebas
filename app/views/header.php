@@ -58,10 +58,22 @@
                             <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
                         </form>
                     </li>
+                    <?php if( isset($_SESSION['user'])): ?>
                     <li class="nav-item">
                         <a href="<?= ROOT ?>shop/logout" class="nav-link">Salir</a>
                     </li>
+                   
+                    <?php endif; ?>
+                    
                 </ul>
+            </div>
+            <div>
+            <?php if( !isset( $_SESSION['user'])): ?>
+                <li class="justify-content-end">
+                    
+                        <a href="<?= ROOT ?>Login" class="btn btn-light"><i class="fas fa-user"></i></a>
+                    </li>
+            <?php endif; ?>
             </div>
         <?php endif; ?>
         <?php if(isset($data['admin']) && $data['admin']): ?>

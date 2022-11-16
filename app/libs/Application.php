@@ -15,8 +15,8 @@ class Application
         $this->separarUrl();
 
         if ( ! $this->urlController ) {
-            require_once '../app/controllers/LoginController.php';
-            $page = new LoginController();
+            require_once '../app/controllers/UnloggedShopController.php';
+            $page = new UnloggedShopController();
             $page->index();
         } elseif (file_exists('../app/controllers/' . ucfirst($this->urlController) . 'Controller.php')) {
             $controller = ucfirst($this->urlController) . 'Controller';
@@ -40,8 +40,8 @@ class Application
                 }
             }
         } else {
-            require_once '../app/controllers/LoginController.php';
-            $page = new LoginController();
+            require_once '../app/controllers/UnloggedShopController.php';
+            $page = new UnloggedShopController();
             $page->index();
         }
     }
