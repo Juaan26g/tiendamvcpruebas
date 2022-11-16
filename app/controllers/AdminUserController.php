@@ -3,10 +3,11 @@
 class AdminUserController extends Controller
 {
     private $model;
-
+    
     public function __construct()
     {
         $this->model = $this->model('AdminUser');
+        
     }
 
     public function index()
@@ -15,13 +16,14 @@ class AdminUserController extends Controller
 
         if ($session->getLogin()) {
 
-            $users = $this->model->getUsers();
-
+            $adminusers = $this->model->getAdminUsers();
+            $users = $this->model('Login')->getUsers();
             $data = [
                 'titulo' => 'Administración de Usuarios',
                 'menu' => false,
                 'admin' => true,
-                'users' => $users,
+                'adminusers' => $adminusers,
+                'users' => $users
             ];
 
             $this->view('admin/users/index', $data);
@@ -155,14 +157,14 @@ class AdminUserController extends Controller
             }
         }
 
-        $user = $this->model->getUserById($id);
+        $adminuser = $this->model->getAdminUserById($id);
         $status = $this->model->getConfig('adminStatus');
 
         $data = [
             'titulo' => 'Administración de Usuarios - Editar',
             'menu' => false,
             'admin' => true,
-            'data' => $user,
+            'data' => $adminuser,
             'status' => $status,
             'errors' => $errors,
         ];
@@ -184,14 +186,14 @@ class AdminUserController extends Controller
 
         }
 
-        $user = $this->model->getUserById($id);
+        $adminuser = $this->model->getAdminUserById($id);
         $status = $this->model->getConfig('adminStatus');
 
         $data = [
             'titulo' => 'Administración de Usuarios - Eliminación',
             'menu' => false,
             'admin' => true,
-            'data' => $user,
+            'data' => $adminuser,
             'status' => $status,
             'errors' => $errors,
         ];

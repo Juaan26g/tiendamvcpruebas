@@ -54,6 +54,16 @@ class Login
         return $response;
     }
 
+   
+    public function getUsers()
+    {
+        $sql = 'SELECT * FROM users ';
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
     public function getUserByEmail($email)
     {
         $sql = 'SELECT * FROM users WHERE email=:email';
